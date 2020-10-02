@@ -6,4 +6,7 @@ export const ItemsListBox = styled.ul`
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   grid-gap: 2em;
   padding: 0.5em;
+  width: calc(100% - 1em);
+  box-sizing: border-box;
+  position: relative;
 `
