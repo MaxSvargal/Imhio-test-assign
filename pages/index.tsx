@@ -1,16 +1,34 @@
+import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import Link from 'next/link'
+import React, { FC } from 'react'
+import useSWR from 'swr'
 
+import { ItemsList } from '../components/ItemsList'
 import Layout from '../components/Layout'
+import { IResponseItems } from '../interfaces/items'
+import { fetchItems } from '../repos/apiRepo'
 
-const IndexPage = () => (
-  <Layout title="Home | Next.js + TypeScript Example">
-    <h1>Hello Next.js 👋</h1>
-    <p>
-      <Link href="/about">
-        <a>About</a>
-      </Link>
-    </p>
-  </Layout>
-)
+export const getServerSideProps: GetServerSideProps = async () => {
+  const initialData = await fetchItems()
+  return { props: { initialData } }
+}
 
-export default IndexPage
+export const MainPage: FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({
+  initialData
+}) => {
+  const resp = useSWR<IResponseItems, void>('/items', fetchItems, { initialData })
+
+  return (
+    <Layout title="List">
+      <h1>List</h1>
+      {resp.data && <ItemsList items={resp.data.item} />}
+      <p>
+        <Link href="/">
+          <a>Go home</a>
+        </Link>
+      </p>
+    </Layout>
+  )
+}
+
+export default MainPage
