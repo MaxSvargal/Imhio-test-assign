@@ -1,47 +1,35 @@
-import React, { ReactNode } from 'react'
-import Link from 'next/link'
 import Head from 'next/head'
-import styled, { ThemeProvider } from 'styled-components';
-import { defaultTheme } from '../styles/theme';
+import React, { FC } from 'react'
+import { ThemeProvider } from 'styled-components'
 
-type Props = {
-  children?: ReactNode
+import { defaultTheme } from '../styles/theme'
+import { GlobalStyle, PageContainer } from './Layout.styles'
+
+interface IProps {
   title?: string
 }
 
-const TextSecond = styled.text<{disabled: boolean}>`
-  color: ${({ theme }) => theme.secondaryColor};
-  background-color: ${({ theme }) => theme.primaryColor};
-`;
-
-const Layout = ({ children, title = 'This is the default title' }: Props) => (
+const Layout: FC<IProps> = ({ children, title = 'This is the default title' }) => (
   <ThemeProvider theme={defaultTheme}>
     <Head>
       <title>{title}</title>
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      <link rel="preload" href="/api/items" as="fetch" crossOrigin="anonymous"></link>
     </Head>
     <header>
-      <nav>
-        <Link href="/">
-          <a>Home</a>
-        </Link>{' '}
-        |{' '}
-        <Link href="/about">
-          <a>About</a>
-        </Link>{' '}
-        |{' '}
-        <Link href="/users">
-          <a>Users List</a>
-        </Link>{' '}
-        | <a href="/api/users">Users API</a>
-      </nav>
+      <h1>OZEEX</h1>
     </header>
-    <TextSecond disabled={true}>Foo</TextSecond>
-    {children}
+    <GlobalStyle />
+    <PageContainer>{children}</PageContainer>
     <footer>
       <hr />
-      <span>I'm here to stay (Footer)</span>
+      <span>
+        Disclaimer: All models are 18 years or older. All porn galleries and links to sex videos are
+        provided by 3rd parties. We have no control over the content of these pages. We take no
+        responsibility for the content on any website which we link to, please use your own
+        discretion while surfing the porn links. And we are proudly labeled with the RTA.
+      </span>
     </footer>
   </ThemeProvider>
 )
