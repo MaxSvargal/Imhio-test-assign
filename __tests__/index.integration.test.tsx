@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 
-import itemsFixture from '../fixtures/items.json'
+import itemsFixture from '../fixtures/itemsShort.json'
 import IndexPage from '../pages/index'
 import * as apiRepo from '../repos/apiRepo'
 
@@ -31,10 +31,23 @@ describe('IndexPage', () => {
     render(<IndexPage />)
     expect(fetchItemsSpy).toHaveBeenCalledTimes(1)
     expect(fetchItemsSpy).toHaveBeenCalledWith('/items')
-    expect(await screen.findAllByRole('listitem')).toHaveLength(60)
+    expect(await screen.findAllByRole('listitem')).toHaveLength(2)
   })
 
-  it.todo('on init, it renders correct list element picture and info')
+  it('on init, it renders correct list element pictures and info', async () => {
+    render(<IndexPage />)
+
+    expect(screen.getAllByAltText('1 of 5')[0]).toHaveProperty(
+      'src',
+      'https://bs3.efohk.com/video/w/320/h/180/enhancement/1/cx1/0/cx2/640/cy1/0/cy2/360/2a1/e0e/2a1e0e4d1c841911fb9cd2c575b064ae.jpg'
+    )
+
+    expect(screen.getAllByText('The Perfumed Honeymoon')[0]).toBeInTheDocument()
+    expect(screen.getByText('Added: 2020.07.23 22:54')).toBeInTheDocument()
+    expect(screen.getByText('Duration: 00:10:22')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Actress' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Climax' })).toBeInTheDocument()
+  })
   it.todo('when scroll, it renders more list elements')
   it.todo('when click on card, it starts to switch pictures')
   it.todo('when click on card, it has show the correct data')
