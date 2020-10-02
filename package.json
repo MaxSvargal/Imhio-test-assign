@@ -1,6 +1,6 @@
 {
-  "name": "with-typescript",
-  "version": "1.0.0",
+  "name": "imhio-test-assign",
+  "version": "0.1.0",
   "scripts": {
     "dev": "next",
     "build": "next build",
@@ -9,7 +9,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "next": "latest",
+    "next": "^9.5.3",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
@@ -24,9 +24,6 @@
     "jest": "^26.4.2",
     "jest-dom": "^4.0.0",
     "typescript": "4.0"
-  },
-  "jest": {
-    "verbose": true
   },
   "license": "MIT"
 }
