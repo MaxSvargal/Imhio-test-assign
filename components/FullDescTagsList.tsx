@@ -1,5 +1,7 @@
 import { FC } from 'react'
 
+import { capitalize } from '../utils/string'
+
 interface IProps {
   children: string
   values: string[]
@@ -11,7 +13,7 @@ export const FullDescTagsList: FC<IProps> = ({ children, values }) => (
       <>
         <strong>{children}:</strong>
         {values.map((val) => (
-          <button key={val}>{val}</button>
+          <button key={val}>{capitalize(val)}</button>
         ))}
       </>
     )}
