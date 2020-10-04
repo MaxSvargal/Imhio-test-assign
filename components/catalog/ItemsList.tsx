@@ -1,7 +1,7 @@
 import React, { FC, useCallback, useState } from 'react'
 
-import { SliderCurrentContextProvider } from '../contexts/sliderCurrentContext'
-import { IItem } from '../interfaces/items'
+import { SliderCurrentContextProvider } from '../../contexts/sliderCurrentContext'
+import { IItem } from '../../interfaces/items'
 import { ItemsListBox } from './ItemsList.styles'
 import { ItemsListItem } from './ItemsListItem'
 
@@ -11,6 +11,7 @@ interface IProps {
 
 export const ItemsList: FC<IProps> = ({ items }) => {
   const [activeId, setActiveId] = useState(0)
+
   const onChangeActive = useCallback(
     (id: number) => () => setActiveId((activeId) => (activeId === id ? 0 : id)),
     []

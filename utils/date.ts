@@ -13,3 +13,6 @@ export const formatDateTime = (value: string): string => {
     return ''
   }
 }
+
+export const formatTime = (value: string): string =>
+  value.slice(0, 2) === '00' ? value.slice(3) : value

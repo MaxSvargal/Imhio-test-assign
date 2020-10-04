@@ -1,7 +1,7 @@
 import { useCallback, useContext, useEffect, useRef, useState } from 'react'
 import { FC } from 'react'
 
-import { sliderCurrentContext } from '../contexts/sliderCurrentContext'
+import { sliderCurrentContext } from '../../contexts/sliderCurrentContext'
 import { Container, OffsetBox } from './GallerySlider.styles'
 
 interface IProps {
