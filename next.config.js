@@ -1,5 +1,6 @@
 module.exports = {
   env: {
-    API_URL: 'http://localhost:3000/api'
+    API_URL: 'https://thirsty-nightingale-e83f38.netlify.app/api'
   }
+  target: "serverless",
 }
