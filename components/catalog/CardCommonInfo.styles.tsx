@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import { device } from '../../styles/device'
+
 export const CardCommonInfoContainer = styled.div<{ inline: boolean }>`
   display: flex;
   justify-content: space-between;
@@ -8,7 +10,7 @@ export const CardCommonInfoContainer = styled.div<{ inline: boolean }>`
   line-height: 2em;
   font-size: 12px;
   padding-top: 10px;
-  @media (min-width: 480px) {
+  @media ${device.desktop} {
     line-height: ${({ inline }) => (inline ? 1.4 : 2.4)}em;
     padding: 5px 0;
   }

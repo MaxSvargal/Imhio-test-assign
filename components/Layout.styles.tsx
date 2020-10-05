@@ -1,5 +1,7 @@
 import styled, { createGlobalStyle } from 'styled-components'
 
+import { device } from '../styles/device'
+
 export const GlobalStyle = createGlobalStyle`
   html, body {
     background: ${({ theme }) => theme.backgroundColor};
@@ -20,8 +22,8 @@ export const LayoutContainer = styled.div`
   min-width: 320px;
   max-width: 1340px;
   margin: auto;
-  @media (min-width: 480px) {
-    padding: 0 5px;
+  @media ${device.desktop} {
+    max-width: 800px;
   }
 `
 
@@ -30,7 +32,7 @@ export const HeaderContainer = styled.header`
   display: flex;
   justify-content: center;
   padding: 8px 0;
-  @media (min-width: 480px) {
+  @media ${device.desktop} {
     display: block;
     padding: 0;
   }

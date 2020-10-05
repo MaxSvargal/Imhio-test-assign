@@ -1,8 +1,10 @@
 import styled from 'styled-components'
 
+import { device } from '../../styles/device'
+
 export const OnlyMobile = styled.div`
   display: block;
-  @media (min-width: 480px) {
+  @media ${device.desktop} {
     display: none;
   }
 `

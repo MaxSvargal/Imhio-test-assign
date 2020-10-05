@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import { device } from '../../styles/device'
+
 export const CardPicture = styled.img`
   min-width: 100%;
   min-height: 200px;
@@ -12,7 +14,7 @@ export const DescText = styled.div`
   text-overflow: ellipsis;
   line-height: 16px;
   padding-bottom: 10px;
-  @media (min-width: 480px) {
+  @media ${device.desktop} {
     padding-bottom: 0;
   }
 `
@@ -30,7 +32,7 @@ export const OutlineBox = styled.div`
   z-index: 3;
   box-sizing: border-box;
   font-size: 12px;
-  @media (min-width: 480px) {
+  @media ${device.desktop} {
     border: 2px solid ${({ theme }) => theme.pinkColor};
     height: auto;
     left: 0;
@@ -118,7 +120,7 @@ export const FullInfoBox = styled.div`
   justify-content: space-around;
   min-height: inherit;
   overflow: hidden;
-  @media (min-width: 480px) {
+  @media ${device.desktop} {
     padding: 5px;
   }
 `
