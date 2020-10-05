@@ -64,12 +64,13 @@ $ yarn start
 - Outline additional info on click on "More Info". It spreads down into the next line.
 
 ---
-### Hints
+### Problems and Hints
 - All device-specific CSS rules based on media queries and some elements can be hidden depends on screen size. Although this is a best practice, I have an experience to catch user agent and send only required elements from the server. So, for now I chose the-best-practice-way because it's easier and faster.
 - Filtering by tags wasn't been produced because there are no target in test assignment.
 - There are 5 cards in row instead of 4 in full width page view, because it fits in grid container automatically for 240px. If we want to fix it, we should increase the minimum width of cards up to 270px and it's also ok for mobile devices. So, I switched to it in the last version.
 - Lazy list wasn't been produced, because SSR needs to render all elements immediately. But it works now for images via intersection observer.
+- Test coverage is not full because it's not easy to check how is element is in viewport in JSDOM. So, I droped it, but know how to produce it. Or just use other tool like Selenium or Cypress.
 
 ---
-### Costs
-It costs about 12 hours of development includes tests.
+### Time Cost
+It costs about 13 hours of development includes tests.
