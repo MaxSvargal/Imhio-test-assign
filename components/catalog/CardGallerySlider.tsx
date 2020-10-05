@@ -2,7 +2,7 @@ import React, { FC, useRef } from 'react'
 
 import { useOnScreen } from '../../hooks/useOnScreen'
 import { IItem } from '../../interfaces/items'
-import { GallerySliderPicture } from './CardGallerySlider.styles'
+import { GallerySliderContainer, GallerySliderPicture } from './CardGallerySlider.styles'
 import { GallerySlider } from './GallerySlider'
 
 interface IProps {
@@ -14,11 +14,7 @@ export const CardGallerySlider: FC<IProps> = ({ value }) => {
   const isShow = useOnScreen(ref, '100px')
 
   return (
-    <div
-      ref={ref}
-      css={`
-        height: 180px;
-      `}>
+    <GallerySliderContainer ref={ref}>
       {isShow && (
         <GallerySlider loopMsec={1000} index={value.id}>
           {value.picture.map((pic, i) => (
@@ -30,6 +26,6 @@ export const CardGallerySlider: FC<IProps> = ({ value }) => {
           ))}
         </GallerySlider>
       )}
-    </div>
+    </GallerySliderContainer>
   )
 }

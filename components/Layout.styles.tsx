@@ -22,9 +22,6 @@ export const LayoutContainer = styled.div`
   min-width: 320px;
   max-width: 1340px;
   margin: auto;
-  @media ${device.desktop} {
-    max-width: 800px;
-  }
 `
 
 export const HeaderContainer = styled.header`
