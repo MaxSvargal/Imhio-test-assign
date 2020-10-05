@@ -96,7 +96,7 @@ describe('MainPage', () => {
     ).toBeInTheDocument()
     expect(screen.getAllByText('2020.07.24 20:42')[0]).toBeInTheDocument()
     expect(screen.getAllByText('13:35')[0]).toBeInTheDocument()
-    expect(screen.getAllByText('TNAFlix')).toBeInTheDocument()
+    expect(screen.getAllByText('TNAFlix')[0]).toBeInTheDocument()
 
     expect(screen.getByText('Pornstars:')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Christy Mack' })).toBeInTheDocument()
