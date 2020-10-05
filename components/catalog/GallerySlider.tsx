@@ -7,41 +7,37 @@ import { Container, OffsetBox } from './GallerySlider.styles'
 interface IProps {
   children: JSX.Element[]
   loopMsec: number
+  index: number
 }
 
-export const GallerySlider: FC<IProps> = ({ children, loopMsec }) => {
+export const GallerySlider: FC<IProps> = ({ children, loopMsec, index }) => {
   const [activeId, setActiveId] = useContext(sliderCurrentContext)
 
-  const [isPlay, setIsPlay] = useState(false)
-  const [currIndex, setCurrIndex] = useState(0)
+  const [currPicIndex, setCurrPicIndex] = useState<number>(0)
   const intervalId = useRef<number>()
 
-  const onToggleScroll = useCallback(() => setIsPlay((state) => !state), [])
+  const onToggleScroll = useCallback(() => {
+    setActiveId(index !== activeId ? index : undefined)
+  }, [activeId, index])
 
   const updateCurrentIndex = useCallback(
-    () => setCurrIndex((index) => (index === children.length - 1 ? 0 : index + 1)),
-    []
+    () => setCurrPicIndex((index) => (index === children.length - 1 ? 0 : index + 1)),
+    [children.length]
   )
 
   useEffect(() => {
-    if (isPlay) {
+    if (activeId === index) {
       intervalId.current = setInterval(updateCurrentIndex, loopMsec)
       updateCurrentIndex()
-      setActiveId(intervalId.current)
     } else {
       if (intervalId.current) clearInterval(intervalId.current)
-      setActiveId(undefined)
     }
     return () => clearInterval(intervalId.current)
-  }, [isPlay])
-
-  useEffect(() => {
-    if (activeId !== intervalId.current) clearInterval(intervalId.current)
-  }, [intervalId, activeId])
+  }, [activeId, index])
 
   return (
     <Container onClick={onToggleScroll}>
-      <OffsetBox css={{ transform: `translateX(${currIndex * -100}%)` }}>
+      <OffsetBox css={{ transform: `translateX(${currPicIndex * -100}%)` }}>
         {intervalId.current ? children : children[0]}
       </OffsetBox>
     </Container>

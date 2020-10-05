@@ -9,7 +9,7 @@ interface IProps {
 }
 
 export const CardGallerySlider: FC<IProps> = ({ value }) => (
-  <GallerySlider loopMsec={1000}>
+  <GallerySlider loopMsec={1000} index={value.id}>
     {value.picture.map((pic, i) => (
       <GallerySliderPicture
         src={pic.path}
