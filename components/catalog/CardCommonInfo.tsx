@@ -12,14 +12,14 @@ interface IProps {
 export const CardCommonInfo: FC<IProps> = ({ active, value }) => (
   <CardCommonInfoContainer inline={!active}>
     <div>
-      <strong>Published:</strong> {formatDateTime(value.added)}
+      <strong>Published: </strong> {formatDateTime(value.added)}
     </div>
     <div>
-      <strong>Duration:</strong> {formatTime(value.duration)}
+      <strong>Duration: </strong> {formatTime(value.duration)}
     </div>
     {active && (
       <div>
-        <strong>Source:</strong> {value.source}
+        <strong>Source: </strong> {value.source}
       </div>
     )}
   </CardCommonInfoContainer>

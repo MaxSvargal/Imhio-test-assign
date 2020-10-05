@@ -29,7 +29,7 @@ const Layout: FC<IProps> = ({ children, title = 'This is the default title' }) =
         <HeaderTitle>OZEEX</HeaderTitle>
       </HeaderContainer>
       <main>{children}</main>
-      <FooterContainer>
+      <FooterContainer aria-label="Footer">
         Disclaimer: All models are 18 years or older. All porn galleries and links to sex videos are
         provided by 3rd parties. We have no control over the content of these pages. We take no
         responsibility for the content on any website which we link to, please use your own

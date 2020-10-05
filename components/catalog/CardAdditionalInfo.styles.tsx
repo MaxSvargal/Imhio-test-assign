@@ -35,7 +35,8 @@ export const OutlineBox = styled.div`
     height: auto;
     left: 0;
     margin-top: -2px;
-    min-height: 180px;
+    height: 180px;
+    overflow: hidden;
     padding: 0;
     position: absolute;
     right: 0;

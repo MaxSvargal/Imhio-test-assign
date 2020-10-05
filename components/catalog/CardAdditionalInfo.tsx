@@ -42,10 +42,10 @@ export const CardAdditionalInfo: FC<IProps> = ({ active, value, onChangeActive }
     <OutlineBox>
       <OnlyMobile>
         <CloseBtnContainer>
-          <CloseBtn onClick={onChangeActive} />
+          <CloseBtn onClick={onChangeActive} title="Close" />
         </CloseBtnContainer>
 
-        <GallerySlider loopMsec={1000}>
+        <GallerySlider loopMsec={1000} index={value.id}>
           {value.picture.map((pic, i) => (
             <CardPicture src={pic.path} key={pic.id} alt={`${i + 1} of ${value.picture.length}`} />
           ))}
