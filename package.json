@@ -1,6 +1,8 @@
 {
   "name": "imhio-test-assign",
   "version": "0.1.0",
+  "author": "MaxSvargal",
+  "email": "maxsvargal@gmail.com",
   "scripts": {
     "dev": "next",
     "build": "next build",
