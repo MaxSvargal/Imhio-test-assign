@@ -42,7 +42,9 @@ export const CardAdditionalInfo: FC<IProps> = ({ active, value, onChangeActive }
     <OutlineBox>
       <OnlyMobile>
         <CloseBtnContainer>
-          <CloseBtn onClick={onChangeActive} title="Close" />
+          <button>
+            <CloseBtn onClick={onChangeActive} title="Close" />
+          </button>
         </CloseBtnContainer>
 
         <GallerySlider loopMsec={1000} index={value.id}>
