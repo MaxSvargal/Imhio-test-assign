@@ -3,7 +3,13 @@ import React, { FC } from 'react'
 import { ThemeProvider } from 'styled-components'
 
 import { defaultTheme } from '../styles/theme'
-import { GlobalStyle, HeaderContainer, HeaderTitle, LayoutContainer } from './Layout.styles'
+import {
+  FooterContainer,
+  GlobalStyle,
+  HeaderContainer,
+  HeaderTitle,
+  LayoutContainer
+} from './Layout.styles'
 
 interface IProps {
   title?: string
@@ -23,15 +29,12 @@ const Layout: FC<IProps> = ({ children, title = 'This is the default title' }) =
         <HeaderTitle>OZEEX</HeaderTitle>
       </HeaderContainer>
       <main>{children}</main>
-      <footer>
-        <hr />
-        <span>
-          Disclaimer: All models are 18 years or older. All porn galleries and links to sex videos
-          are provided by 3rd parties. We have no control over the content of these pages. We take
-          no responsibility for the content on any website which we link to, please use your own
-          discretion while surfing the porn links. And we are proudly labeled with the RTA.
-        </span>
-      </footer>
+      <FooterContainer>
+        Disclaimer: All models are 18 years or older. All porn galleries and links to sex videos are
+        provided by 3rd parties. We have no control over the content of these pages. We take no
+        responsibility for the content on any website which we link to, please use your own
+        discretion while surfing the porn links. And we are proudly labeled with the RTA.
+      </FooterContainer>
     </LayoutContainer>
   </ThemeProvider>
 )

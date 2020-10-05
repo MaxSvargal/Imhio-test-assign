@@ -41,3 +41,9 @@ export const HeaderTitle = styled.h1`
   margin: 0 5px;
   font-weight: normal;
 `
+
+export const FooterContainer = styled.footer`
+  font-size: 11px;
+  max-width: 380px;
+  padding: 10px 0;
+`
