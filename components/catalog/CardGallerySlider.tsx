@@ -14,7 +14,11 @@ export const CardGallerySlider: FC<IProps> = ({ value }) => {
   const isShow = useOnScreen(ref, '100px')
 
   return (
-    <div ref={ref}>
+    <div
+      ref={ref}
+      css={`
+        height: 180px;
+      `}>
       {isShow && (
         <GallerySlider loopMsec={1000} index={value.id}>
           {value.picture.map((pic, i) => (
